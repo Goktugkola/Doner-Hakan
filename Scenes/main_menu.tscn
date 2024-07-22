@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://ttb5gg2aew1k"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_m8uv5"]
+[ext_resource type="Theme" uid="uid://di4s3n7ulhr2o" path="res://Assets/basla.tres" id="2_7c2sy"]
+[ext_resource type="Texture2D" uid="uid://cyev7mjya1rux" path="res://sound/mainmenu.png" id="2_32yoh"]
+[ext_resource type="PackedScene" uid="uid://dyvibw4jnsjtr" path="res://Scenes/options_menu.tscn" id="2_g462j"]
+[ext_resource type="Theme" uid="uid://b3eq2bu2cnpqu" path="res://Assets/Quit.tres" id="3_3k2m0"]
+[ext_resource type="Theme" uid="uid://i5vqes01s2x5" path="res://Assets/Fullscreen.tres" id="5_5a610"]
+[ext_resource type="AudioStream" uid="uid://cdutqw0ut4kxc" path="res://sound/Eric Skiff - Underclocked.mp3" id="6_nknbs"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_m8uv5")
+
+[node name="Mainmenu2" type="Sprite2D" parent="."]
+position = Vector2(959.778, 542)
+scale = Vector2(6.01111, 6.01111)
+texture = ExtResource("2_32yoh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 777.0
+offset_top = 403.0
+offset_right = 1132.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7c2sy")
+text = "	"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_3k2m0")
+text = "	"
+
+[node name="options_menu" parent="." instance=ExtResource("2_g462j")]
+visible = false
+offset_left = 960.0
+offset_top = 392.0
+offset_right = 960.0
+offset_bottom = 392.0
+
+[node name="options" type="Button" parent="."]
+offset_left = 1745.0
+offset_top = 926.0
+offset_right = 1882.0
+offset_bottom = 1063.0
+theme = ExtResource("5_5a610")
+text = "	"
+
+[node name="menumusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nknbs")
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="options_back" from="options_menu" to="." method="_on_options_menu_options_back"]
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]

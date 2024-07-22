@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bknvnqn807vod"]
+
+[ext_resource type="Script" path="res://Scenes/cutscenes/beforend.gd" id="1_7jvxd"]
+[ext_resource type="Texture2D" uid="uid://vf4getgntiar" path="res://sound/doner.png" id="2_rps4w"]
+
+[node name="beforend" type="Node2D"]
+script = ExtResource("1_7jvxd")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Doner" type="Sprite2D" parent="."]
+position = Vector2(959.556, 535)
+scale = Vector2(6.02222, 6.02222)
+texture = ExtResource("2_rps4w")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

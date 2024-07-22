@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvp2xyxttk6el"]
+
+[ext_resource type="Texture2D" uid="uid://d33xiwl45kur8" path="res://Assets/Skybox.png" id="1_ce42h"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = -100
+
+[node name="Skybox" type="Sprite2D" parent="."]
+position = Vector2(959.222, 537.75)
+scale = Vector2(6, 6)
+texture = ExtResource("1_ce42h")

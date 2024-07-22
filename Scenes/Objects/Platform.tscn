@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d011hb6vufvxm"]
+
+[ext_resource type="Texture2D" uid="uid://dnle4dwaa6lbi" path="res://Assets/ucankedy.jpg" id="1_xxtkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vleue"]
+size = Vector2(102, 21)
+
+[node name="Platform" type="Node2D"]
+
+[node name="Ucankedy" type="Sprite2D" parent="."]
+position = Vector2(0, 0.499998)
+scale = Vector2(0.102, 0.0302594)
+texture = ExtResource("1_xxtkd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vleue")

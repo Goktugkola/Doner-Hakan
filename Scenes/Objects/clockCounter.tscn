@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ww1mo1xghmiv"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/clockCounter.gd" id="1_t43g7"]
+
+[node name="clockCounter" type="Node2D"]
+script = ExtResource("1_t43g7")

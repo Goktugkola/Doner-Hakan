@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://o5i73imally8"]
+
+[ext_resource type="Script" path="res://Scenes/cutscenes/end.gd" id="1_2oi4s"]
+[ext_resource type="Texture2D" uid="uid://bp4d25fn04x11" path="res://Assets/Cumhuriyet-Sheet.png" id="2_djgr7"]
+
+[sub_resource type="Animation" id="Animation_nt7tc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cumhuriyet-sheet:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cumhuriyet-sheet:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i3g6l"]
+resource_name = "cumhuriyet"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cumhuriyet-sheet:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cumhuriyet-sheet:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ui51l"]
+_data = {
+"RESET": SubResource("Animation_nt7tc"),
+"cumhuriyet": SubResource("Animation_i3g6l")
+}
+
+[node name="end" type="Node2D"]
+script = ExtResource("1_2oi4s")
+
+[node name="Cumhuriyet-sheet" type="Sprite2D" parent="."]
+position = Vector2(960.556, 544)
+scale = Vector2(6.02222, 6.02222)
+texture = ExtResource("2_djgr7")
+hframes = 21
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ui51l")
+}

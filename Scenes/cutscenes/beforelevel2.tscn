@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5as2vmvgphic"]
+
+[ext_resource type="Script" path="res://Scenes/cutscenes/skip2.gd" id="1_da0ea"]
+[ext_resource type="Texture2D" uid="uid://dt5p7quraymqn" path="res://Assets/slide2.png" id="3_tv841"]
+
+[node name="beforelevel2" type="Node2D"]
+script = ExtResource("1_da0ea")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+one_shot = true
+autostart = true
+
+[node name="Slide2" type="Sprite2D" parent="."]
+position = Vector2(964.667, 541.5)
+scale = Vector2(6.01667, 6.01667)
+texture = ExtResource("3_tv841")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

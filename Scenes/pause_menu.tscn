@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://di3d3vpm8beuc"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_3patp"]
+[ext_resource type="Theme" uid="uid://clwa4q6e5qghr" path="res://Assets/resume.tres" id="2_4nhsu"]
+[ext_resource type="Theme" uid="uid://i5vqes01s2x5" path="res://Assets/Fullscreen.tres" id="3_swhtw"]
+[ext_resource type="Theme" uid="uid://b4mupy2gmim1l" path="res://Assets/cikis.tres" id="4_2k6sm"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_3patp")
+
+[node name="GridContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -113.0
+offset_right = -6.0
+offset_bottom = 30.62
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.28808, 1.22627)
+
+[node name="resume_b" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_4nhsu")
+theme_override_font_sizes/font_size = 32
+text = "	"
+
+[node name="options_b" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_swhtw")
+theme_override_font_sizes/font_size = 32
+text = "	"
+
+[node name="quit_b" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("4_2k6sm")
+theme_override_font_sizes/font_size = 32
+text = "	"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.384314, 0.396078, 0.419608, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 816.0
+offset_top = 391.0
+offset_right = 1041.0
+offset_bottom = 482.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+
+[connection signal="pressed" from="GridContainer/resume_b" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="GridContainer/options_b" to="." method="_on_options_b_pressed"]
+[connection signal="pressed" from="GridContainer/quit_b" to="." method="_on_quit_b_pressed"]
